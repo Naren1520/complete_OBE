@@ -12,10 +12,10 @@ import { ChevronLeft, CheckCircle, XCircle } from "lucide-react"
 const facultyData: Record<number, any> = {
   1: {
     id: 1,
-    name: "Mr. Vasudeva Rao P V",
+    name: "Mr. John",
     designation: "Assistant Professor",
     department: "Information Science & Engineering",
-    email: "vasudeva@college.edu",
+    email: "john@college.edu",
     submittedDate: "2024-11-15",
   },
   2: {

@@ -43,7 +43,7 @@ export default function LoginPage() {
       router.push("/dashboard")
     } else if (username.toLowerCase().startsWith("acad")) {
       // Redirect to academic portal
-      router.push("/academicSWO")
+      router.push("/academicSWO/dashboard")
     } else if (username.toLowerCase().startsWith("4sf")) {
       // Redirect to student portal
       localStorage.setItem("userRole", "student")

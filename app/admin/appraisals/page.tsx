@@ -2,9 +2,9 @@
 
 import { useState } from "react"
 import { Plus, Search, Edit, Trash2, Eye } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Button } from "@/components/admin/button"
+import { Input } from "@/components/admin/input"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/admin/table"
 import {
   Dialog,
   DialogContent,
@@ -12,10 +12,10 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
+} from "@/components/admin/dialog"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/admin/dropdown-menu"
-import { Label } from "@/components/ui/label"
-import { Badge } from "@/components/ui/badge"
+import { Label } from "@/components/admin/label"
+import { Badge } from "@/components/admin/badge"
 
 // Sample data for appraisals
 const initialAppraisals = [

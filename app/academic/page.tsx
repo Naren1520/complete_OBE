@@ -28,7 +28,7 @@ export default function AcademicPage() {
   }, [router])
 
   const handleBackToDashboard = () => {
-    router.push("/dashboard")
+    router.push("/faculty-dashboard")
   }
   const handleSubjectClick = (selectedSubject: string) => {
     localStorage.setItem("selectedSubject", selectedSubject)

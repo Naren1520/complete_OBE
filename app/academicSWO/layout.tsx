@@ -16,8 +16,8 @@ import {
   ClipboardList,
 } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/admin/button"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/admin/avatar"
 import {
   SidebarProvider,
   Sidebar,
@@ -35,47 +35,47 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/admin/dropdown-menu"
 
 const navItems = [
   {
     title: "Dashboard",
-    href: "/academic/dashboard",
+    href: "/academicSWO/dashboard",
     icon: <LayoutDashboard className="h-5 w-5" />,
   },
   {
     title: "Faculty Feedback",
-    href: "/academic/faculty-feedback",
+    href: "/academicSWO/faculty-feedback",
     icon: <MessageSquare className="h-5 w-5" />,
   },
   {
     title: "Institution Feedback",
-    href: "/academic/institution-feedback",
+    href: "/academicSWO/institution-feedback",
     icon: <School className="h-5 w-5" />,
   },
   {
     title: "Feedback Reports",
-    href: "/academic/feedback-reports",
+    href: "/academicSWO/feedback-reports",
     icon: <FileText className="h-5 w-5" />,
   },
   {
     title: "Course Management",
-    href: "/academic/course-management",
+    href: "/academicSWO/course-management",
     icon: <BookOpen className="h-5 w-5" />,
   },
   {
     title: "Faculty Management",
-    href: "/academic/faculty-management",
+    href: "/academicSWO/faculty-management",
     icon: <Users className="h-5 w-5" />,
   },
   {
     title: "Exam Management",
-    href: "/academic/exam-management",
+    href: "/academicSWO/exam-management",
     icon: <ClipboardList className="h-5 w-5" />,
   },
   {
     title: "Settings",
-    href: "/academic/settings",
+    href: "/academicSWO/settings",
     icon: <Settings className="h-5 w-5" />,
   },
 ]
@@ -86,7 +86,7 @@ export default function AcademicLayout({ children }: { children: React.ReactNode
 
   const handleLogout = () => {
     // In a real application, you would handle logout logic here
-    router.push("/login")
+    router.push("/")
   }
 
   return (

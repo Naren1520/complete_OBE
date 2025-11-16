@@ -49,9 +49,9 @@ export default function Dashboard() {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2 text-sm text-gray-600">
                
-                <span className="font-medium">RITHESH PAKKALA P</span>
+                <span className="font-medium">JOHN</span>
                 <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs">RP</span>
+                  <span className="text-white text-xs">J</span>
                 </div>
               </div>
               <Button onClick={handleLogout} variant="outline" size="sm">

@@ -1,12 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/admin/card"
+import { Button } from "@/components/admin/button"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/admin/tabs"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/admin/table"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/admin/select"
+import { Input } from "@/components/admin/input"
 import { BarChart, FileDown, FileText, Search } from "lucide-react"
 
 // Sample data for faculty feedback reports

@@ -48,9 +48,9 @@ export default function FacultyDashboard() {
             </div>
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2 text-sm text-gray-600">
-                <span className="font-medium">RITHESH PAKKALA P</span>
+                <span className="font-medium">JOHN</span>
                 <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs">RP</span>
+                  <span className="text-white text-xs">J</span>
                 </div>
               </div>
               <Button onClick={handleLogout} variant="outline" size="sm">
@@ -111,17 +111,12 @@ export default function FacultyDashboard() {
           <Button className="bg-red-600 hover:bg-red-700 text-white p-6 h-auto text-lg font-medium">
             Document Verification
           </Button>
-          <Button className="bg-teal-400 hover:bg-teal-500 text-white p-6 h-auto text-lg font-medium">
-            Verify Student
-          </Button>
-        </div>
-
-        {/* Appraisal Button */}
-        <div className="flex justify-center mt-6">
-          <Button onClick={handleAppraisalClick} className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4">
+          <Button onClick={handleAppraisalClick} className="bg-teal-400 hover:bg-teal-500 text-white p-6 h-auto text-lg font-medium">
             Appraisal
           </Button>
         </div>
+
+        
       </div>
     </div>
   )

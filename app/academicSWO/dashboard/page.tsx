@@ -1,7 +1,7 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/admin/card"
+import { Button } from "@/components/admin/button"
 import Link from "next/link"
 import { MessageSquare, School, FileText, Users, BookOpen, ClipboardList } from "lucide-react"
 
@@ -22,7 +22,7 @@ export default function AcademicDashboard() {
           <CardContent>
             <p className="mb-4 text-sm">Create and manage feedback forms for faculty evaluation</p>
             <Button asChild className="w-full">
-              <Link href="/academic/faculty-feedback">Manage Faculty Feedback</Link>
+              <Link href="/academicSWO/faculty-feedback">Manage Faculty Feedback</Link>
             </Button>
           </CardContent>
         </Card>
@@ -35,7 +35,7 @@ export default function AcademicDashboard() {
           <CardContent>
             <p className="mb-4 text-sm">Create and manage feedback forms for institution evaluation</p>
             <Button asChild className="w-full bg-green-600 hover:bg-green-700">
-              <Link href="/academic/institution-feedback">Manage Institution Feedback</Link>
+              <Link href="/academicSWO/institution-feedback">Manage Institution Feedback</Link>
             </Button>
           </CardContent>
         </Card>
@@ -48,7 +48,7 @@ export default function AcademicDashboard() {
           <CardContent>
             <p className="mb-4 text-sm">Generate and view reports from collected feedback</p>
             <Button asChild className="w-full bg-purple-600 hover:bg-purple-700">
-              <Link href="/academic/feedback-reports">View Reports</Link>
+              <Link href="/academicSWO/feedback-reports">View Reports</Link>
             </Button>
           </CardContent>
         </Card>
@@ -61,7 +61,7 @@ export default function AcademicDashboard() {
           <CardContent>
             <p className="mb-4 text-sm">Add, edit, and manage course information</p>
             <Button asChild className="w-full bg-orange-600 hover:bg-orange-700">
-              <Link href="/academic/course-management">Manage Courses</Link>
+              <Link href="/academicSWO/course-management">Manage Courses</Link>
             </Button>
           </CardContent>
         </Card>
@@ -74,7 +74,7 @@ export default function AcademicDashboard() {
           <CardContent>
             <p className="mb-4 text-sm">Add, edit, and manage faculty details</p>
             <Button asChild className="w-full bg-red-600 hover:bg-red-700">
-              <Link href="/academic/faculty-management">Manage Faculty</Link>
+              <Link href="/academicSWO/faculty-management">Manage Faculty</Link>
             </Button>
           </CardContent>
         </Card>
@@ -87,7 +87,7 @@ export default function AcademicDashboard() {
           <CardContent>
             <p className="mb-4 text-sm">Create and manage examination schedules</p>
             <Button asChild className="w-full bg-cyan-600 hover:bg-cyan-700">
-              <Link href="/academic/exam-management">Manage Exams</Link>
+              <Link href="/academicSWO/exam-management">Manage Exams</Link>
             </Button>
           </CardContent>
         </Card>

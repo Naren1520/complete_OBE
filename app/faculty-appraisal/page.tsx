@@ -59,7 +59,7 @@ export default function FacultyAppraisalPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div>
                 <p className="text-sm text-gray-600">Name</p>
-                <p className="font-semibold text-gray-800">Mr. Vasudeva Rao P V</p>
+                <p className="font-semibold text-gray-800">JOHN</p>
               </div>
               <div>
                 <p className="text-sm text-gray-600">Department</p>
