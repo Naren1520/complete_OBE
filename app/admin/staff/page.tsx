@@ -2,9 +2,9 @@
 
 import { useState } from "react"
 import { Plus, Search, Edit, Trash2, Eye, Filter } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Button } from "@/components/admin/button"
+import { Input } from "@/components/admin/input"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/admin/table"
 import {
   Dialog,
   DialogContent,
@@ -12,13 +12,13 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Label } from "@/components/ui/label"
-import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+} from "@/components/admin/dialog"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/admin/dropdown-menu"
+import { Label } from "@/components/admin/label"
+import { Badge } from "@/components/admin/badge"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/admin/tabs"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/admin/avatar"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/admin/select"
 
 // Sample data for staff
 const initialStaff = [

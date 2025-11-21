@@ -4,11 +4,11 @@ import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { PlusCircle, Search, Filter, FileDown, Trash2, Edit, Eye, CheckCircle2, XCircle, Clock } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Button } from "@/components/admin/button"
+import { Input } from "@/components/admin/input"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/admin/card"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/admin/table"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/admin/select"
 import {
   Dialog,
   DialogContent,
@@ -16,8 +16,8 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
-import { Badge } from "@/components/ui/badge"
+} from "@/components/admin/dialog"
+import { Badge } from "@/components/admin/badge"
 
 // Sample data for leave records
 const leaveRecords = [

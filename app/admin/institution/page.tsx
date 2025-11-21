@@ -41,7 +41,7 @@ const initialInstitutionData = {
   locationCoordinates: "12.8698° N, 74.8867° E",
 
   // Governance
-  headOfInstitution: "Dr. Rajesha S",
+  headOfInstitution: "Dr.S S Injaganeri",
   headDesignation: "Principal",
   headEmail: "principal@sahyadri.edu.in",
   headPhone: "0824-2277222",

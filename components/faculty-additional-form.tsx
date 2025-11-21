@@ -18,8 +18,8 @@ export function FacultyAdditionalForm({ faculty, onSubmit }: FacultyAdditionalFo
   const [formData, setFormData] = useState({
     height: faculty?.height || "",
     contactNumber: faculty?.contactNumber || "",
-    payscale: faculty?.payscale || "",
     bankAccountNumber: faculty?.bankAccountNumber || "",
+ 
     pan: faculty?.pan || "",
     aadharNumber: faculty?.aadharNumber || "",
     preExistingAilments: faculty?.preExistingAilments || "",
@@ -82,21 +82,7 @@ export function FacultyAdditionalForm({ faculty, onSubmit }: FacultyAdditionalFo
   return (
     <form onSubmit={handleSubmit} className="space-y-6 py-4">
       <div className="grid gap-6 md:grid-cols-2">
-        <div className="space-y-2">
-          <Label htmlFor="height">Height</Label>
-          <Select value={formData.height} onValueChange={(value) => handleSelectChange("height", value)} required>
-            <SelectTrigger id="height">
-              <SelectValue placeholder="Select height" />
-            </SelectTrigger>
-            <SelectContent>
-              {heights.map((height) => (
-                <SelectItem key={height} value={height}>
-                  {height}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+        
         <div className="space-y-2">
           <Label htmlFor="contactNumber">Contact Number</Label>
           <Input
@@ -107,10 +93,9 @@ export function FacultyAdditionalForm({ faculty, onSubmit }: FacultyAdditionalFo
             required
           />
         </div>
-        <div className="space-y-2">
-          <Label htmlFor="payscale">Payscale</Label>
-          <Input id="payscale" name="payscale" value={formData.payscale} onChange={handleChange} required />
-        </div>
+
+        
+       
         <div className="space-y-2">
           <Label htmlFor="bankAccountNumber">Bank Account Number</Label>
           <Input
@@ -121,6 +106,11 @@ export function FacultyAdditionalForm({ faculty, onSubmit }: FacultyAdditionalFo
             required
           />
         </div>
+
+    
+
+
+
         <div className="space-y-2">
           <Label htmlFor="pan">PAN</Label>
           <Input id="pan" name="pan" value={formData.pan} onChange={handleChange} required />

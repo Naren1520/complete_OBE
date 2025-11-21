@@ -1,0 +1,306 @@
+'use client'
+
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Checkbox } from '@/components/ui/checkbox'
+import { AlertCircle, Search } from 'lucide-react'
+
+export default function AttendancePage() {
+  const router = useRouter()
+  const [attendanceType, setAttendanceType] = useState<string>('')
+  const [selectedDate, setSelectedDate] = useState<string>('')
+  const [selectedSection, setSelectedSection] = useState<string>('')
+  const [classesCount, setClassesCount] = useState<number>(1)
+  const [classType, setClassType] = useState<string>('regular')
+  const [searchTerm, setSearchTerm] = useState<string>('')
+  const [students, setStudents] = useState([
+    { id: 1, name: 'Aarav Sharma', rollNo: '4SF21CS001', present: true },
+    { id: 2, name: 'Bhavna Kumar', rollNo: '4SF21CS002', present: true },
+    { id: 3, name: 'Chirag Patel', rollNo: '4SF21CS003', present: true },
+    { id: 4, name: 'Diana Singh', rollNo: '4SF21CS004', present: true },
+    { id: 5, name: 'Esha Verma', rollNo: '4SF21CS005', present: true },
+    { id: 6, name: 'Faizan Khan', rollNo: '4SF21CS006', present: true },
+  ])
+
+  const sections = ['3A', '3B', '4A', '4B', '5A', '5B', '6A', '6B']
+
+  const filteredStudents = students.filter((student) =>
+    student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    student.rollNo.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+
+  const presentCount = students.filter((s) => s.present).length
+  const shortageCount = students.filter((s) => {
+    const attendancePercentage = (Math.random() * 100)
+    return attendancePercentage < 85
+  }).length
+
+  const toggleStudentPresence = (id: number) => {
+    setStudents(students.map((s) => (s.id === id ? { ...s, present: !s.present } : s)))
+  }
+
+  const handleSave = () => {
+    if (!selectedDate || !selectedSection || !attendanceType) {
+      alert('Please fill all fields')
+      return
+    }
+    console.log('Attendance data saved:', {
+      type: attendanceType,
+      date: selectedDate,
+      section: selectedSection,
+      classesCount,
+      classType,
+      students: students.filter((s) => s.present),
+    })
+    alert('Attendance saved successfully')
+  }
+
+  const attendanceTypes = [
+    { name: 'Regular', path: '/faculty-dashboard/attendance/regular', color: 'bg-blue-600 hover:bg-blue-700' },
+    { name: 'Grace', path: '/faculty-dashboard/attendance/grace', color: 'bg-green-600 hover:bg-green-700' },
+    { name: 'Remedial', path: '/faculty-dashboard/attendance/remedial', color: 'bg-orange-600 hover:bg-orange-700' },
+    { name: 'Supplementary', path: '/faculty-dashboard/attendance/supplementary', color: 'bg-purple-600 hover:bg-purple-700' },
+  ]
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn")
+    localStorage.removeItem("userEmail")
+    router.push("/")
+  }
+
+  
+  const handleBackToRoleSelection = () => {
+    router.push("/faculty-dashboard")
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header  */}
+      <div className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-3">
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-green-600 rounded flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">S</span>
+                </div>
+                <span className="text-lg font-semibold text-gray-800">Digital Campus</span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2 text-sm text-gray-600">
+                <span className="font-medium">JOHN</span>
+                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                  <span className="text-white text-xs">J</span>
+                </div>
+              </div>
+              <Button onClick={handleLogout} variant="outline" size="sm">
+                Logout
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="mb-6">
+          <Button onClick={handleBackToRoleSelection} variant="outline" size="sm">
+            ← Back to dashboard
+          </Button>
+        </div>
+        <div className="mb-8">
+          
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">Attendance Management</h1>
+          <p className="text-gray-600">Select attendance type to proceed</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {attendanceTypes.map((type) => (
+            <Card key={type.name} className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => router.push(type.path)}>
+              <CardContent className="p-6">
+                <Button className={`w-full h-24 text-lg font-semibold text-white ${type.color}`}>
+                  {type.name}
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {attendanceType && (
+          <>
+            <Card>
+              <CardHeader>
+                <CardTitle>Select Date</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  {['Regular', 'Grace', 'Remedial', 'Supplementary'].map((type) => (
+                    <Button
+                      key={type}
+                      onClick={() => setAttendanceType(type.toLowerCase())}
+                      variant={attendanceType === type.toLowerCase() ? 'default' : 'outline'}
+                      className="h-auto py-4"
+                    >
+                      {type}
+                    </Button>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Attendance Details</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <Label htmlFor="date">Select Date</Label>
+                    <Input
+                      id="date"
+                      type="date"
+                      value={selectedDate}
+                      onChange={(e) => setSelectedDate(e.target.value)}
+                      className="mt-2"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="section">Select Section</Label>
+                    <Select value={selectedSection} onValueChange={setSelectedSection}>
+                      <SelectTrigger className="mt-2">
+                        <SelectValue placeholder="Choose section" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {sections.map((sec) => (
+                          <SelectItem key={sec} value={sec}>
+                            {sec}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="classes">Number of Classes Taken (Max 4)</Label>
+                    <Input
+                      id="classes"
+                      type="number"
+                      min="1"
+                      max="4"
+                      value={classesCount}
+                      onChange={(e) => setClassesCount(Math.min(4, parseInt(e.target.value) || 1))}
+                      className="mt-2"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="classType">Type of Class</Label>
+                    <Select value={classType} onValueChange={setClassType}>
+                      <SelectTrigger className="mt-2">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="regular">Regular</SelectItem>
+                        <SelectItem value="extra">Extra</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Students Present</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold">{presentCount}</div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Total Students</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold">{students.length}</div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Attendance Shortage</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold text-red-600">{shortageCount}</div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {shortageCount > 0 && (
+              <Card className="border-red-200 bg-red-50">
+                <CardHeader>
+                  <div className="flex items-center gap-2">
+                    <AlertCircle className="w-5 h-5 text-red-600" />
+                    <CardTitle className="text-red-800">Attendance Shortage</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="text-sm text-red-700">
+                  {shortageCount} student(s) have attendance below 85%. Please review their attendance records.
+                </CardContent>
+              </Card>
+            )}
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Student Attendance</CardTitle>
+                <div className="relative mt-4">
+                  <Search className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
+                  <Input
+                    placeholder="Search by name or roll number"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="pl-10"
+                  />
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  {filteredStudents.map((student) => (
+                    <div key={student.id} className="flex items-center justify-between p-3 border rounded-lg hover:bg-gray-50">
+                      <div className="flex items-center gap-3 flex-1">
+                        <Checkbox
+                          checked={student.present}
+                          onCheckedChange={() => toggleStudentPresence(student.id)}
+                        />
+                        <div>
+                          <p className="font-medium">{student.name}</p>
+                          <p className="text-sm text-muted-foreground">{student.rollNo}</p>
+                        </div>
+                      </div>
+                      <span className={`text-sm font-medium ${student.present ? 'text-green-600' : 'text-red-600'}`}>
+                        {student.present ? 'Present' : 'Absent'}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <div className="flex gap-4">
+              <Button onClick={handleSave} className="flex-1">
+                Save Attendance
+              </Button>
+              <Button onClick={() => router.back()} variant="outline" className="flex-1">
+                Cancel
+              </Button>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  )
+}

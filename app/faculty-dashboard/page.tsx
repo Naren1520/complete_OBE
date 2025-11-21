@@ -32,6 +32,10 @@ export default function FacultyDashboard() {
     router.push("/faculty-appraisal")
   }
 
+   const handleAttendanceClick = () => {
+    router.push("/faculty-dashboard/attendance")
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Fixed Header */}
@@ -87,7 +91,7 @@ export default function FacultyDashboard() {
           <Button className="bg-cyan-500 hover:bg-cyan-600 text-white p-6 h-auto text-lg font-medium">
             Administration
           </Button>
-          <Button className="bg-orange-500 hover:bg-orange-600 text-white p-6 h-auto text-lg font-medium">
+          <Button onClick={handleAttendanceClick} className="bg-orange-500 hover:bg-orange-600 text-white p-6 h-auto text-lg font-medium">
             Attendance
           </Button>
           <Button className="bg-teal-500 hover:bg-teal-600 text-white p-6 h-auto text-lg font-medium">

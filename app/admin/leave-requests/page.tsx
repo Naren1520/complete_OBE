@@ -1,6 +1,6 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/admin/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/admin/card"
 import { Plus } from "lucide-react"
 import { DataTable } from "@/components/data-table"
 import { columns } from "./columns"

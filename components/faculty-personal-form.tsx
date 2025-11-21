@@ -74,6 +74,18 @@ export function FacultyPersonalForm({ faculty, onSubmit }: FacultyPersonalFormPr
     researchExperience: faculty?.researchExperience || "",
     industryExperience: faculty?.industryExperience || "",
     profilePhoto: faculty?.profilePhoto || "",
+
+    panFile: null,
+    aadharFile: null,
+    bankName: '',
+    bankBranch: '',
+    ifscCode: '',
+    maritalStatus: 'unmarried',
+    spouseName: '',
+    uan: '',
+    googleScholar: '',
+    scopusId: '',
+    orcId: '',
   })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -314,27 +326,29 @@ export function FacultyPersonalForm({ faculty, onSubmit }: FacultyPersonalFormPr
               </PopoverContent>
             </Popover>
           </div>
+
           <div className="space-y-2">
-            <Label htmlFor="designationDate">Date of Current Designation</Label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button variant={"outline"} className="w-full justify-start text-left font-normal">
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {designationDate ? format(designationDate, "PPP") : <span>Pick a date</span>}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0">
-                <Calendar
-                  mode="single"
-                  selected={designationDate}
-                  onSelect={handleDesignationDateChange}
-                  initialFocus
-                />
-              </PopoverContent>
-            </Popover>
-          </div>
+          <Label htmlFor="designation">Current Designation</Label>
+          <Select
+            value={formData.designation}
+            onValueChange={(value) => handleSelectChange("designation", value)}
+            required
+          >
+            <SelectTrigger id="designation">
+              <SelectValue placeholder="Select designation" />
+            </SelectTrigger>
+            <SelectContent>
+              {designations.map((designation) => (
+                <SelectItem key={designation} value={designation}>
+                  {designation}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+          
           <div className="space-y-2">
-            <Label htmlFor="associateType">Associate Type</Label>
+            <Label htmlFor="associateType">Association Type</Label>
             <Select
               value={formData.associateType}
               onValueChange={(value) => handleSelectChange("associateType", value)}

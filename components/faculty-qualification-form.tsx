@@ -164,11 +164,12 @@ export function FacultyQualificationForm({ onSubmit }: { onSubmit: (data: any) =
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="phd">Ph.D</SelectItem>
+                    <SelectItem value="phd">Post Doctorial</SelectItem>
+                    <SelectItem value="masters">Ph.D</SelectItem>
                     <SelectItem value="masters">Masters</SelectItem>
                     <SelectItem value="bachelors">Bachelors</SelectItem>
-                    <SelectItem value="diploma">Diploma</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
+                    <SelectItem value="diploma">10+2</SelectItem>
+                    <SelectItem value="other">SSLC</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -214,19 +215,7 @@ export function FacultyQualificationForm({ onSubmit }: { onSubmit: (data: any) =
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="otherQualifications"
-            render={({ field }) => (
-              <FormItem className="col-span-2">
-                <FormLabel>Other Qualifications</FormLabel>
-                <FormControl>
-                  <Textarea placeholder="List any other qualifications" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          
           <FormField
             control={form.control}
             name="researchInterests"
@@ -242,191 +231,6 @@ export function FacultyQualificationForm({ onSubmit }: { onSubmit: (data: any) =
           />
         </div>
 
-        <div className="border-t pt-6">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-medium">Publications</h3>
-            <Button type="button" variant="outline" onClick={addPublication}>
-              Add Publication
-            </Button>
-          </div>
-
-          {publications.map((pub, index) => (
-            <div key={index} className="border p-4 rounded-md mb-4">
-              <div className="flex justify-between items-center mb-2">
-                <h4 className="font-medium">Publication {index + 1}</h4>
-                {publications.length > 1 && (
-                  <Button type="button" variant="destructive" size="sm" onClick={() => removePublication(index)}>
-                    Remove
-                  </Button>
-                )}
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label>Title</Label> {/* Use Label instead of FormLabel */}
-                  <Input
-                    value={pub.title}
-                    onChange={(e) => updatePublication(index, "title", e.target.value)}
-                    placeholder="Publication title"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Journal/Conference</Label> {/* Use Label instead of FormLabel */}
-                  <Input
-                    value={pub.journal}
-                    onChange={(e) => updatePublication(index, "journal", e.target.value)}
-                    placeholder="Journal or conference name"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Year</Label> {/* Use Label instead of FormLabel */}
-                  <Input
-                    value={pub.year}
-                    onChange={(e) => updatePublication(index, "year", e.target.value)}
-                    placeholder="Publication year"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>DOI (optional)</Label> {/* Use Label instead of FormLabel */}
-                  <Input
-                    value={pub.doi}
-                    onChange={(e) => updatePublication(index, "doi", e.target.value)}
-                    placeholder="DOI reference"
-                  />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="border-t pt-6">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-medium">Research Projects</h3>
-            <Button type="button" variant="outline" onClick={addResearchProject}>
-              Add Project
-            </Button>
-          </div>
-
-          {researchProjects.map((project, index) => (
-            <div key={index} className="border p-4 rounded-md mb-4">
-              <div className="flex justify-between items-center mb-2">
-                <h4 className="font-medium">Research Project {index + 1}</h4>
-                {researchProjects.length > 1 && (
-                  <Button type="button" variant="destructive" size="sm" onClick={() => removeResearchProject(index)}>
-                    Remove
-                  </Button>
-                )}
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label>Title</Label> {/* Use Label instead of FormLabel */}
-                  <Input
-                    value={project.title}
-                    onChange={(e) => updateResearchProject(index, "title", e.target.value)}
-                    placeholder="Project title"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Funding Agency</Label> {/* Use Label instead of FormLabel */}
-                  <Input
-                    value={project.fundingAgency}
-                    onChange={(e) => updateResearchProject(index, "fundingAgency", e.target.value)}
-                    placeholder="Funding agency name"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Amount</Label> {/* Use Label instead of FormLabel */}
-                  <Input
-                    value={project.amount}
-                    onChange={(e) => updateResearchProject(index, "amount", e.target.value)}
-                    placeholder="Funding amount"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Duration</Label> {/* Use Label instead of FormLabel */}
-                  <Input
-                    value={project.duration}
-                    onChange={(e) => updateResearchProject(index, "duration", e.target.value)}
-                    placeholder="Project duration"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Status</Label> {/* Use Label instead of FormLabel */}
-                  <Select
-                    value={project.status}
-                    onValueChange={(value) => updateResearchProject(index, "status", value)}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select status" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="ongoing">Ongoing</SelectItem>
-                      <SelectItem value="completed">Completed</SelectItem>
-                      <SelectItem value="planned">Planned</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="border-t pt-6">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-medium">Certifications</h3>
-            <Button type="button" variant="outline" onClick={addCertification}>
-              Add Certification
-            </Button>
-          </div>
-
-          {certifications.map((cert, index) => (
-            <div key={index} className="border p-4 rounded-md mb-4">
-              <div className="flex justify-between items-center mb-2">
-                <h4 className="font-medium">Certification {index + 1}</h4>
-                {certifications.length > 1 && (
-                  <Button type="button" variant="destructive" size="sm" onClick={() => removeCertification(index)}>
-                    Remove
-                  </Button>
-                )}
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label>Name</Label> {/* Use Label instead of FormLabel */}
-                  <Input
-                    value={cert.name}
-                    onChange={(e) => updateCertification(index, "name", e.target.value)}
-                    placeholder="Certification name"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Issuing Organization</Label> {/* Use Label instead of FormLabel */}
-                  <Input
-                    value={cert.issuingOrganization}
-                    onChange={(e) => updateCertification(index, "issuingOrganization", e.target.value)}
-                    placeholder="Organization name"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Issue Date</Label> {/* Use Label instead of FormLabel */}
-                  <Input
-                    value={cert.issueDate}
-                    onChange={(e) => updateCertification(index, "issueDate", e.target.value)}
-                    placeholder="Date of issue"
-                    type="date"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label>Expiry Date (if applicable)</Label> {/* Use Label instead of FormLabel */}
-                  <Input
-                    value={cert.expiryDate}
-                    onChange={(e) => updateCertification(index, "expiryDate", e.target.value)}
-                    placeholder="Date of expiry"
-                    type="date"
-                  />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
 
         <Button type="submit">Save & Continue</Button>
       </form>
