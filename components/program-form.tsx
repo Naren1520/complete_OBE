@@ -25,7 +25,6 @@ export function ProgramForm({ program, onSubmit, onCancel }: ProgramFormProps) {
     name: program?.name || "",
     code: program?.code || "",
     department: program?.department || "",
-    parentalDepartment: program?.parentalDepartment || "",
     sanctionedIntake: program?.sanctionedIntake || "",
     commencementYear: program?.commencementYear || new Date().getFullYear().toString(),
     aicteApprovalYear: program?.aicteApprovalYear || new Date().getFullYear().toString(),
@@ -239,25 +238,7 @@ export function ProgramForm({ program, onSubmit, onCancel }: ProgramFormProps) {
             </Select>
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="parentalDepartment">Parental Department</Label>
-            <Select
-              value={formData.parentalDepartment}
-              onValueChange={(value) => handleSelectChange("parentalDepartment", value)}
-              required
-            >
-              <SelectTrigger id="parentalDepartment">
-                <SelectValue placeholder="Select parental department" />
-              </SelectTrigger>
-              <SelectContent>
-                {departments.map((dept) => (
-                  <SelectItem key={dept} value={dept}>
-                    {dept}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+         
 
           <div className="space-y-2">
             <Label htmlFor="sanctionedIntake">Sanctioned Intake</Label>

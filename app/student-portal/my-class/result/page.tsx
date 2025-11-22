@@ -1,0 +1,1 @@
+//result page...in the image sent, the columns are:course name,code,cie(1,2,3),total,elegibility(eligible/not eligible)
