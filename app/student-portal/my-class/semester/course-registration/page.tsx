@@ -61,14 +61,14 @@ type Course = {
 }
 
 const sampleCourses: Course[] = [
-  { id: "c1", name: "Data Structures", code: "CS301", credits: 4, instructor: "Dr. Smith", schedule: "Mon/Wed 10:00-11:30", seats: 60, enrolled: 45 },
-  { id: "c2", name: "Web Development", code: "CS302", credits: 3, instructor: "Prof. Johnson", schedule: "Tue/Thu 14:00-15:30", seats: 50, enrolled: 38 },
-  { id: "c3", name: "Database Systems", code: "CS303", credits: 4, instructor: "Dr. Williams", schedule: "Mon/Wed 14:00-15:30", seats: 55, enrolled: 52 },
-  { id: "c4", name: "Computer Networks", code: "CS304", credits: 3, instructor: "Prof. Brown", schedule: "Tue/Thu 10:00-11:30", seats: 45, enrolled: 30 },
-  { id: "c5", name: "Machine Learning", code: "CS305", credits: 4, instructor: "Dr. Davis", schedule: "Wed/Fri 16:00-17:30", seats: 40, enrolled: 39 },
-  { id: "c6", name: "Software Engineering", code: "CS306", credits: 4, instructor: "Prof. Garcia", schedule: "Mon/Wed 16:00-17:30", seats: 50, enrolled: 42 },
-  { id: "c7", name: "Mobile App Development", code: "CS307", credits: 3, instructor: "Dr. Martinez", schedule: "Tue/Thu 16:00-17:30", seats: 35, enrolled: 28 },
-  { id: "c8", name: "Artificial Intelligence", code: "CS308", credits: 4, instructor: "Prof. Lee", schedule: "Mon/Fri 10:00-11:30", seats: 45, enrolled: 44 },
+  { id: "c1", name: "Data Structures", code: "CS301", credits: 4, instructor: "Dr. Naren", schedule: "Mon/Wed 10:00-11:30", seats: 60, enrolled: 45 },
+  { id: "c2", name: "Web Development", code: "CS302", credits: 3, instructor: "Prof. Naren", schedule: "Tue/Thu 14:00-15:30", seats: 50, enrolled: 38 },
+  { id: "c3", name: "Database Systems", code: "CS303", credits: 4, instructor: "Dr. Naren", schedule: "Mon/Wed 14:00-15:30", seats: 55, enrolled: 52 },
+  { id: "c4", name: "Computer Networks", code: "CS304", credits: 3, instructor: "Prof. Naren", schedule: "Tue/Thu 10:00-11:30", seats: 45, enrolled: 30 },
+  { id: "c5", name: "Machine Learning", code: "CS305", credits: 4, instructor: "Dr. Naren", schedule: "Wed/Fri 16:00-17:30", seats: 40, enrolled: 39 },
+  { id: "c6", name: "Software Engineering", code: "CS306", credits: 4, instructor: "Prof. Naren", schedule: "Mon/Wed 16:00-17:30", seats: 50, enrolled: 42 },
+  { id: "c7", name: "Mobile App Development", code: "CS307", credits: 3, instructor: "Dr. Naren", schedule: "Tue/Thu 16:00-17:30", seats: 35, enrolled: 28 },
+  { id: "c8", name: "Artificial Intelligence", code: "CS308", credits: 4, instructor: "Prof. Naren", schedule: "Mon/Fri 10:00-11:30", seats: 45, enrolled: 44 },
 ]
 
 export default function CourseRegistration({ searchParams }: { searchParams?: { sem?: string } }) {
